@@ -1,0 +1,6 @@
+[submodule "vendor/modernizr"]
+	path = vendor/modernizr
+	url = https://github.com/Modernizr/Modernizr.git
+[submodule "vendor/underscore"]
+	path = vendor/underscore
+	url = https://github.com/documentcloud/underscore.git
