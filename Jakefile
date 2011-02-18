@@ -1,6 +1,8 @@
-var uglifyParser = require("uglify-js").parser,
-    uglifyProcessor = require("uglify-js").uglify,
+var uglifyParser = require('uglify-js').parser,
+    uglifyProcessor = require('uglify-js').uglify,
+    stylus = require('stylus'),
     util = require('util'),
+    fs = require('fs'),
     process = require('child_process'),
     concatenate = function(inputFiles, outputFile, callback) {
         
@@ -61,7 +63,57 @@ var uglifyParser = require("uglify-js").parser,
             }
         );
     },
-    minify = function(input, outputFile) {
+    css = function(inputFile, outputFile, minify) {
+         
+        fs.unlink(
+            outputFile,
+            function() {
+                
+                fs.readFile(
+                    inputFile,
+                    function(error, data) {
+                        
+                        if(error) {
+                            
+                            util.log('Error reading stylus input: ' + error);
+                        } else {
+                            
+                            stylus(data.toString('utf8'))
+                            .set('compress', minify)
+                            .render(
+                                function(error, css) {
+                                    
+                                    if(error) {
+                                        
+                                        util.log(error)
+                                    } else {
+                                        
+                                        fs.writeFile(
+                                            outputFile,
+                                            css,
+                                            function(error) {
+                                                
+                                                if(error) {
+                                                    
+                                                    util.log('Error writing ' + (minify ? 'normal' : 'minified') + ' css!');
+                                                } else {
+                                                    
+                                                    util.log('Wrote ' + (minify ? 'normal' : 'minified') + ' css!');
+                                                }
+                                            }
+                                        );
+                                    }
+                                }
+                            );
+                        }
+                    }
+                );
+            }
+        );
+        
+        
+    },
+    minify = function(input, outputFile, callback) {
     
         var minified = uglifyProcessor.gen_code(uglifyProcessor.ast_squeeze(uglifyParser.parse(input)));
         
@@ -73,6 +125,9 @@ var uglifyParser = require("uglify-js").parser,
                 if(error) {
                     
                     until.error('Error writing minified file: ' + error);
+                } else {
+                    
+                    callback();
                 }
             }
         );
@@ -85,21 +140,46 @@ var uglifyParser = require("uglify-js").parser,
     ];
 
 task(
-    'default',
+    'stylus',
     [],
     function() {
+        
+        css('./lib/postersession.styl', './dist/postersession.css', false);
+        css('./lib/postersession.styl', './dist/postersession.min.css', true);
+    }
+);
+
+task(
+    'js',
+    [],
+    function() {
+        
         
         concatenate(
             library,
             './dist/postersession.js',
             function(output) {
-            
+                
+                util.log('Wrote normal js!');
+                
                 minify(
                     
                     output,
-                    './dist/postersession.min.js'
+                    './dist/postersession.min.js',
+                    function() {
+                        
+                        util.log('Wrote minified js!');
+                    }
                 );
             }
         );
+    }
+);
+
+task(
+    'default',
+    ['js', 'stylus'],
+    function() {
+        
     }
 );
