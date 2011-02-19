@@ -7,7 +7,7 @@ blockquote:before,blockquote:after,q:before,q:after{content:"";content:none}
 table{border-collapse:collapse;border-spacing:0}
 .presentation{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:#404040;background:#fafafa;display:block;position:relative;}
 .presentation body{display:block;position:fixed;top:0;left:0;bottom:0;right:0;}
-.presentation body > ol{display:block;position:absolute;top:0;left:0;}
+.presentation body > ol{display:block;position:absolute;top:0;left:0;-moz-transition-property:left;-webkit-transition-property:left;-o-transition-property:left;transition-property:left;-moz-transition-duration:.5s;-webkit-transition-duration:.5s;-o-transition-duration:.5s;transition-duration:.5s;-moz-transition-timing-function:ease-in-out;-webkit-transition-timing-function:ease-in-out;-o-transition-timing-function:ease-in-out;transition-timing-function:ease-in-out;}
 .presentation body > ol > li{display:block;position:relative;float:left;}
 .presentation body > ol > li > .inner{display:block;position:relative;padding:40px}
 body > ol > li.centered{text-align:center}

@@ -46,6 +46,20 @@ reset()
     border-collapse collapse
     border-spacing 0
 
+transition(properties, duration, ease)
+  -moz-transition-property properties
+  -webkit-transition-property properties
+  -o-transition-property properties
+  transition-property properties
+  -moz-transition-duration duration
+  -webkit-transition-duration duration
+  -o-transition-duration duration
+  transition-duration duration
+  -moz-transition-timing-function ease
+  -webkit-transition-timing-function ease
+  -o-transition-timing-function ease
+  transition-timing-function ease
+
 
 reset()
 
@@ -74,6 +88,8 @@ reset()
 
       top 0
       left 0
+
+      transition left 0.5s ease-in-out
 
       > li
       
