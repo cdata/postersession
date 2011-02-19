@@ -1,3 +1,143 @@
+reset()
+  html, 
+  body, div, span, applet, object, iframe, 
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, 
+  abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed, 
+  figure, figcaption, footer, header, hgroup, 
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video
+    margin 0
+    padding 0
+    border 0
+    font-size 100%
+    font inherit
+    vertical-align baseline
+
+  article, 
+  aside, details, figcaption, figure, 
+  footer, header, hgroup, menu, nav, section
+    display block
+
+  body
+    line-height 1
+
+  ol, 
+  ul
+    list-style none
+
+  blockquote, 
+  q
+    quotes none
+
+  blockquote:before, 
+  blockquote:after
+  q:before, q:after
+    content ''
+    content none
+
+  table
+    border-collapse collapse
+    border-spacing 0
+
+
+reset()
+
 .presentation
+  
+  font-family "Helvetica Neue", Helvetica, Arial, sans-serif
+  
+  color #404040
+  background #fafafa
   display block
-  position relative
+  position: relative
+  
+  body
+    
+    display block
+    position fixed
+    top 0
+    left 0
+    bottom 0
+    right 0
+
+    > ol
+      
+      display block
+      position absolute
+
+      top 0
+      left 0
+
+      > li
+      
+        display block
+        position relative
+        float left
+
+        > .inner
+          display block
+          position relative
+          padding 40px
+
+body > ol > li
+  
+  &.centered
+    text-align center
+
+  a
+    color #6600ff
+    text-decoration none
+
+    &:hover
+      color #ff9900
+
+  p,
+  span,
+  h1, h2, h3, h4, h5
+    margin-bottom 20px
+
+  
+  p,
+  span,
+  li
+    font-size 36px
+    font-weight 400
+    line-height 42px
+
+  h1
+    font-weight 800
+    font-size 72px
+    
+  h2
+    font-weight 600
+    font-size 58px
+
+  h3
+    font-weight 500
+    font-size 44px
+
+  ol
+    display inline-block
+    list-style decimal inside
+  ul
+    display inline-block
+    list-style disc inside
+
+    li
+      display list-item
+      margin-bottom: 10px
+
+    ul
+      list-style circle inside
+
+        ul
+          list-style square inside
+    
+        

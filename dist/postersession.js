@@ -1678,6 +1678,11 @@ window.Modernizr = (function(window,doc,undefined){
         
         return _(document.querySelectorAll.apply(document, arguments)).chain();
     };
+
+    $.one = function() {
+
+        return document.querySelector.apply(document, arguments);
+    };
     
     $.log = function(out) {
         
@@ -1708,7 +1713,136 @@ window.Modernizr = (function(window,doc,undefined){
             $.log(out);
         }
     };
+
+    $.addEventListener = function(event, handler, captures) {
+        
+        var self = this;
+
+        if(self.addEventListener) {
+            
+            self.addEventListener(event, handler, captures);
+        } else {
+            
+            self.attachEvent('on' + event, handler);
+        }
+    }
+
+    $.removeEventListener = function(event, handler, captures) {
+
+        var self = this;
+
+        if(self.removeEventListener) {
+
+            self.removeEventListener(event, handler, captures);
+        } else {
+
+            self.detachEvent('on' + event, handler);
+        }
+    }
     
+    
+    $.addEventListener.call(
+        window,
+        'DOMContentLoaded',
+        function() {
+
+            var stack = $.one('body > ol'),
+                slides = $('body > ol > li'),
+                currentSlide = slides.value()[0];
+
+            stack.style.width = slides.value().length * window.outerWidth + 'px';
+
+            $.addEventListener.call(
+
+                window,
+                'resize',
+                function() {
+
+                    $('body > ol > li').forEach(
+                        function(li, index) {
+
+                            stack.style.left = -1 * currentSlide.offsetLeft + 'px';
+                            li.style.width = window.outerWidth + 'px';
+                            li.style.height = window.outerHeight + 'px';
+                        }
+                    );
+                }
+            );
+            
+            $('body > ol > li').forEach(
+                function(li, index) {
+
+                    var clickTimer;
+
+                    li.style.width = window.outerWidth + 'px';
+                    li.style.height = window.outerHeight + 'px';
+
+                    $.addEventListener.call(
+                        li, 
+                        'click',
+                        function(event) {
+
+                            if(event.target.tagName != "A") {
+                                var previous = li.previousElementSibling,
+                                    next = li.nextElementSibling;
+
+                                if(clickTimer) {
+
+                                    clearTimeout(clickTimer);
+                                    clickTimer = null;
+
+                                    if(previous) {
+
+                                        currentSlide = previous;
+                                        stack.style.left = -1 * previous.offsetLeft + 'px';
+                                    }
+                                } else {
+
+                                    clickTimer = setTimeout(
+                                        function() {
+
+                                            clickTimer = null;
+
+                                            if(next) {
+
+                                                currentSlide = next;
+                                                stack.style.left = -1 * next.offsetLeft + 'px';
+                                            }
+                                        },
+                                        350
+                                    );
+                                }
+                            }
+                        }
+                    );
+
+                    // Wrap children in 'inner'
+                    
+                    var inner = document.createElement('div'),
+                        children = li.childNodes.length;
+                    inner.classList.add('inner');
+
+                    while(li.firstChild) {
+
+                        inner.appendChild(li.firstChild);
+                    }
+
+                    li.appendChild(inner);
+
+                    // Fix anchor targets
+                    
+                    $('body > ol > li a').forEach(
+
+                        function(a, index) {
+
+                            a.target = "_blank";
+                        }
+                    );
+                }
+            );
+        }
+    );
+
     window.posterSession = $;
     
 })(_, window, document);

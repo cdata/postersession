@@ -1,1 +1,24 @@
-.presentation{display:block;position:relative}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+body{line-height:1}
+ol,ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:"";content:none}
+table{border-collapse:collapse;border-spacing:0}
+.presentation{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:#404040;background:#fafafa;display:block;position:relative;}
+.presentation body{display:block;position:fixed;top:0;left:0;bottom:0;right:0;}
+.presentation body > ol{display:block;position:absolute;top:0;left:0;}
+.presentation body > ol > li{display:block;position:relative;float:left;}
+.presentation body > ol > li > .inner{display:block;position:relative;padding:40px}
+body > ol > li.centered{text-align:center}
+body > ol > li a{color:#60f;text-decoration:none;}
+body > ol > li a:hover{color:#f90}
+body > ol > li p,body > ol > li span,body > ol > li h1,body > ol > li h2,body > ol > li h3,body > ol > li h4,body > ol > li h5{margin-bottom:20px}
+body > ol > li p,body > ol > li span,body > ol > li li{font-size:36px;font-weight:400;line-height:42px}
+body > ol > li h1{font-weight:800;font-size:72px}
+body > ol > li h2{font-weight:600;font-size:58px}
+body > ol > li h3{font-weight:500;font-size:44px}
+body > ol > li ol{display:inline-block;list-style:decimal inside}
+body > ol > li ul{display:inline-block;list-style:disc inside;}
+body > ol > li ul li{display:list-item;margin-bottom:10px}
+body > ol > li ul ul list-style circle inside ul{list-style:square inside}
