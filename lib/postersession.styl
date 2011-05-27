@@ -60,6 +60,11 @@ transition(properties, duration, ease)
   -o-transition-timing-function ease
   transition-timing-function ease
 
+round(radius)
+  -moz-border-radius radius
+  -webkit-border-radius radius
+  -o-border-radius radius
+  border-radius radius
 
 reset()
 
@@ -163,6 +168,13 @@ body > nav
   bottom 0px
   left 0px
 
+  opacity 0
+
+  transition opacity 0.5s ease-in-out
+
+  &:hover
+    opacity 1
+
   > ol
     display block
     position relative
@@ -173,6 +185,8 @@ body > nav
       margin 10px
       float left
       background #909090
+
+      round 6px
 
       &:hover
         background #404040

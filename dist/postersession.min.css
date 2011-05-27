@@ -22,8 +22,9 @@ body > ol > li ol{display:inline-block;list-style:decimal inside}
 body > ol > li ul{display:inline-block;list-style:disc inside;}
 body > ol > li ul li{display:list-item;margin-bottom:10px}
 body > ol > li ul ul list-style circle inside ul{list-style:square inside}
-body > nav{display:block;position:fixed;bottom:0;left:0;}
+body > nav{display:block;position:fixed;bottom:0;left:0;opacity:0;-moz-transition-property:opacity;-webkit-transition-property:opacity;-o-transition-property:opacity;transition-property:opacity;-moz-transition-duration:.5s;-webkit-transition-duration:.5s;-o-transition-duration:.5s;transition-duration:.5s;-moz-transition-timing-function:ease-in-out;-webkit-transition-timing-function:ease-in-out;-o-transition-timing-function:ease-in-out;transition-timing-function:ease-in-out;}
+body > nav:hover{opacity:1}
 body > nav > ol{display:block;position:relative;}
-body > nav > ol > li{display:block;position:relative;margin:10px;float:left;background:#909090;}
+body > nav > ol > li{display:block;position:relative;margin:10px;float:left;background:#909090;-moz-border-radius:6px;-webkit-border-radius:6px;-o-border-radius:6px;border-radius:6px;}
 body > nav > ol > li:hover{background:#404040}
 body > nav > ol > li > a{display:block;position:relative;padding:10px 20px;font-size:14px;font-weight:bold;color:#ccc;cursor:pointer}

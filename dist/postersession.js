@@ -1774,6 +1774,24 @@ window.Modernizr = (function(window,doc,undefined){
 
             body.appendChild(hud);
             hud.appendChild(smallNav);
+
+            //$.addEventListener(
+                //hud,
+                //'mouseover',
+                //function(event) {
+
+                    //hud.style.opacity = 1;
+                //}
+            //);
+
+            //$.addEventListener(
+                //hud,
+                //'mouseout',
+                //function(event) {
+
+                    //hud.style.opacity = 0;
+                //}
+            //);
             
             $('body > ol > li').forEach(
                 function(li, index) {
