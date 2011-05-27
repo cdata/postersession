@@ -217,3 +217,32 @@ body > ol > li ul li {
 body > ol > li ul ul list-style circle inside ul {
   list-style: square inside;
 }
+body > nav {
+  display: block;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+}
+body > nav > ol {
+  display: block;
+  position: relative;
+}
+body > nav > ol > li {
+  display: block;
+  position: relative;
+  margin: 10px;
+  float: left;
+  background: #909090;
+}
+body > nav > ol > li:hover {
+  background: #404040;
+}
+body > nav > ol > li > a {
+  display: block;
+  position: relative;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ccc;
+  cursor: pointer;
+}

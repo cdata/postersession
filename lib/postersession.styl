@@ -156,4 +156,35 @@ body > ol > li
         ul
           list-style square inside
     
-        
+body > nav
+
+  display block
+  position fixed
+  bottom 0px
+  left 0px
+
+  > ol
+    display block
+    position relative
+
+    > li
+      display block
+      position relative
+      margin 10px
+      float left
+      background #909090
+
+      &:hover
+        background #404040
+
+      > a
+        display block
+        position relative
+
+        padding 10px 20px
+        font-size 14px
+        font-weight bold
+        color #cccccc
+
+        cursor pointer
+
