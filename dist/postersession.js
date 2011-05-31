@@ -1725,7 +1725,7 @@ window.Modernizr = (function(window,doc,undefined){
             
             self.attachEvent('on' + event, handler);
         }
-    }
+    };
 
     $.removeEventListener = function(event, handler, captures) {
 
@@ -1738,7 +1738,33 @@ window.Modernizr = (function(window,doc,undefined){
 
             self.detachEvent('on' + event, handler);
         }
-    }
+    };
+
+    $.addClass = function(className) {
+
+        var self = this;
+
+        if('classList' in self) {
+
+            self.classList.add(className);
+        } else {
+
+            self.className += ' ' + className;
+        }
+    };
+
+    $.removeClass = function(className) {
+
+        if('classList' in self) {
+
+            self.classList.remove(className);
+        } else {
+
+            var newClassList;
+
+            while(newClassList = self.classList.replace(new RegExp('\s*' + className + '\s*', ''))) self.classList = newClassList;
+        }
+    };
     
     
     $.addEventListener.call(
@@ -1775,24 +1801,6 @@ window.Modernizr = (function(window,doc,undefined){
             body.appendChild(hud);
             hud.appendChild(smallNav);
 
-            //$.addEventListener(
-                //hud,
-                //'mouseover',
-                //function(event) {
-
-                    //hud.style.opacity = 1;
-                //}
-            //);
-
-            //$.addEventListener(
-                //hud,
-                //'mouseout',
-                //function(event) {
-
-                    //hud.style.opacity = 0;
-                //}
-            //);
-            
             $('body > ol > li').forEach(
                 function(li, index) {
 
@@ -1859,7 +1867,8 @@ window.Modernizr = (function(window,doc,undefined){
                     
                     var inner = document.createElement('div'),
                         children = li.childNodes.length;
-                    inner.classList.add('inner');
+
+                    $.addClass.call(inner, 'inner');
 
                     while(li.firstChild) {
 
