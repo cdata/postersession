@@ -14,7 +14,7 @@ body > ol > li.centered{text-align:center}
 body > ol > li a{color:#60f;text-decoration:none;}
 body > ol > li a:hover{color:#f90}
 body > ol > li p,body > ol > li span,body > ol > li h1,body > ol > li h2,body > ol > li h3,body > ol > li h4,body > ol > li h5{margin-bottom:20px}
-body > ol > li p,body > ol > li span,body > ol > li li{font-size:36px;font-weight:400;line-height:42px}
+body > ol > li p,body > ol > li span,body > ol > li li{font-size:36px;font-weight:400;line-height:42px;margin-bottom:10px}
 body > ol > li h1{font-weight:800;font-size:72px}
 body > ol > li h2{font-weight:600;font-size:58px}
 body > ol > li h3{font-weight:500;font-size:44px}

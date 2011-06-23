@@ -199,6 +199,7 @@ body > ol > li li {
   font-size: 36px;
   font-weight: 400;
   line-height: 42px;
+  margin-bottom: 10px;
 }
 body > ol > li h1 {
   font-weight: 800;
