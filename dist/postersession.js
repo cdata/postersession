@@ -1822,7 +1822,7 @@ window.Modernizr = (function(window,doc,undefined){
 
                             stack.style.left = -1 * li.offsetLeft + 'px';
                         }
-                    )
+                    );
 
                     $.addEventListener.call(
                         li, 

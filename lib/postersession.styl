@@ -66,6 +66,12 @@ round(radius)
   -o-border-radius radius
   border-radius radius
 
+shadow(color, x, y, spread)
+  -moz-box-shadow color x y spread
+  -webkit-box-shadow color x y spread
+  -o-box-shadow color x y spread
+  box-shadow color x y spread
+
 reset()
 
 .presentation
@@ -103,9 +109,15 @@ reset()
         float left
 
         > .inner
+        
           display block
           position relative
           padding 40px
+
+          margin 20px
+          round 4px
+          shadow rgba(0, 0, 0, 0.5) 0px 1px 4px
+          background #fff
 
 body > ol > li
   

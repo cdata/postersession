@@ -9,7 +9,7 @@ table{border-collapse:collapse;border-spacing:0}
 .presentation body{display:block;position:fixed;top:0;left:0;bottom:0;right:0;}
 .presentation body > ol{display:block;position:absolute;top:0;left:0;-moz-transition-property:left;-webkit-transition-property:left;-o-transition-property:left;transition-property:left;-moz-transition-duration:.5s;-webkit-transition-duration:.5s;-o-transition-duration:.5s;transition-duration:.5s;-moz-transition-timing-function:ease-in-out;-webkit-transition-timing-function:ease-in-out;-o-transition-timing-function:ease-in-out;transition-timing-function:ease-in-out;}
 .presentation body > ol > li{display:block;position:relative;float:left;}
-.presentation body > ol > li > .inner{display:block;position:relative;padding:40px}
+.presentation body > ol > li > .inner{display:block;position:relative;padding:40px;margin:20px;-moz-border-radius:4px;-webkit-border-radius:4px;-o-border-radius:4px;border-radius:4px;-moz-box-shadow:rgba(0,0,0,0.5) 0 1px 4px;-webkit-box-shadow:rgba(0,0,0,0.5) 0 1px 4px;-o-box-shadow:rgba(0,0,0,0.5) 0 1px 4px;box-shadow:rgba(0,0,0,0.5) 0 1px 4px;background:#fff}
 body > ol > li.centered{text-align:center}
 body > ol > li a{color:#60f;text-decoration:none;}
 body > ol > li a:hover{color:#f90}
